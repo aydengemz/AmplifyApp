@@ -1,13 +1,12 @@
 import './App.css';
 import { DataStore } from '@aws-amplify/datastore';
-import { Post } from './models';
-import PostUI from './mycomponents/Post.js';
+import { Todo } from './models';
+
 import awsconfig from "./aws-exports";
 import { Amplify } from 'aws-amplify';
-import AllPosts from './mycomponents/AllPost.js';
+import AllTodo from './mycomponents/AllTodo.js';
 import React, { useState, useEffect } from "react";
-import Form from './mycomponents/Form'
-import PostCreateForm from "./ui-components/PostCreateForm.jsx"
+import TodoCreateForm from "./ui-components/TodoCreateForm.jsx"
 
 Amplify.configure(awsconfig);
 
@@ -15,43 +14,38 @@ Amplify.configure(awsconfig);
 function App() {
 
   useEffect(() => {
-    const subscription = DataStore.observe(Post).subscribe((msg) => {
-      console.log(msg.model, msg.opType, msg.element);
-    });
+
+    const subscription = DataStore.observeQuery(
+
+      Todo).subscribe(snapshot => {
+          const { items, isSynced } = snapshot;
+          console.log(`[Snapshot] item count: ${items.length}, isSynced: ${isSynced}`);
+          setTodosrealtime(items);
+      });
 
     return () => subscription.unsubscribe();
   }, []);
 
   //const posts =[]
-  const [posts, setPosts] = useState([{ title: "DataStore is easy", rating: "5", content:"This is the body " }]);
+  const [todos, setTodos] = useState([{ name: "Task Name", description: "Clean dishes", isComplete: false }]);
+  const [todosrealtime, setTodosrealtime] = useState([{ name: "10adsf", description: "Eat dinner", isComplete: false }]);
 
   const handlePush = async () => {
-    const posts = await DataStore.query(Post);
-    console.log(posts);
-    setPosts(posts)
+    const todos = await DataStore.query(Todo);
+    console.log(todos);
+    setTodos(todos)
   }
-/*
-  const addPost = async () =>{
-
-    await DataStore.save(
-      new Post({
-      "title": "New pOSt",
-      "rating": "Lorem ipsum dolor sit amet",
-      "content": "Lorem ipsum dolor sit amet"
-    })
-  );
-  }
-  */
 
   return (
     
     <div>
    
-        <PostCreateForm />
+        <TodoCreateForm />
         <br></br>
-        <button onClick={handlePush}>GET ALL POSTS</button>
+        <button onClick={handlePush}>GET ALL todos</button>
 
-        <AllPosts posts={posts} />
+        <AllTodo todos={todosrealtime} />
+        <AllTodo todos={todos} />
     
     </div>
   );
