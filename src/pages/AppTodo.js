@@ -1,17 +1,17 @@
-import './App.css';
+import '../App.css';
 import { DataStore } from '@aws-amplify/datastore';
-import { Todo } from './models';
+import { Todo } from '../models';
 
-import awsconfig from "./aws-exports";
+import awsconfig from "../aws-exports";
 import { Amplify } from 'aws-amplify';
-import AllTodo from './mycomponents/AllTodo.js';
+import AllTodo from '../mycomponents/AllTodo.js';
 import React, { useState, useEffect } from "react";
-import TodoCreateForm from "./ui-components/TodoCreateForm.jsx"
+import TodoCreateForm from "../ui-components/TodoCreateForm.jsx"
 
 Amplify.configure(awsconfig);
 
 
-function App() {
+function AppTodo() {
 
   useEffect(() => {
 
@@ -51,5 +51,5 @@ function App() {
   );
 }
 
-export default App;
+export default AppTodo;
 
