@@ -4,9 +4,11 @@ import { schema } from './schema';
 
 
 
-const { Todo, Post } = initSchema(schema);
+const { Player2, Player, Todo, Post } = initSchema(schema);
 
 export {
+  Player2,
+  Player,
   Todo,
   Post
 };

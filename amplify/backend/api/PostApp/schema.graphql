@@ -1,3 +1,15 @@
+type Player2 @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String!
+  clicks: Int
+}
+
+type Player @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String!
+  clicks: Int
+}
+
 type Todo @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!

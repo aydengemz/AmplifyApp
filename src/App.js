@@ -1,51 +1,49 @@
 import './App.css';
 import { DataStore } from '@aws-amplify/datastore';
-import { Todo } from './models';
+import { Player } from './models';
 
 import awsconfig from "./aws-exports";
 import { Amplify } from 'aws-amplify';
-import AllTodo from './mycomponents/AllTodo.js';
+import AllPlayer from './mycomponents/AllPlayer.js';
 import React, { useState, useEffect } from "react";
-import TodoCreateForm from "./ui-components/TodoCreateForm.jsx"
+import PlayerCreateForm from "./ui-components/PlayerCreateForm.jsx"
 
 Amplify.configure(awsconfig);
 
-
 function App() {
 
+  
   useEffect(() => {
 
     const subscription = DataStore.observeQuery(
 
-      Todo).subscribe(snapshot => {
+      Player).subscribe(snapshot => {
           const { items, isSynced } = snapshot;
           console.log(`[Snapshot] item count: ${items.length}, isSynced: ${isSynced}`);
-          setTodosrealtime(items);
+          setPlayersrealtime(items);
       });
 
     return () => subscription.unsubscribe();
   }, []);
 
-  //const posts =[]
-  const [todos, setTodos] = useState([{ name: "Task Name", description: "Clean dishes", isComplete: false }]);
-  const [todosrealtime, setTodosrealtime] = useState([{ name: "10adsf", description: "Eat dinner", isComplete: false }]);
+  const [players, setPlayers] = useState([{ username: "Player0", clicks: 0}]);
+  const [playersrealtime, setPlayersrealtime] = useState([{ username: "10adsf", clicks: 0}]);
 
   const handlePush = async () => {
-    const todos = await DataStore.query(Todo);
-    console.log(todos);
-    setTodos(todos)
+    const players = await DataStore.query(Player);
+    console.log(players);
+    setPlayers(players)
   }
 
   return (
     
     <div>
-   
-        <TodoCreateForm />
+        <PlayerCreateForm />
         <br></br>
-        <button onClick={handlePush}>GET ALL todos</button>
+        <button onClick={handlePush}>GET ALL Players</button>
 
-        <AllTodo todos={todosrealtime} />
-        <AllTodo todos={todos} />
+        <AllPlayer players={playersrealtime} />
+        <AllPlayer players={players} />
     
     </div>
   );
