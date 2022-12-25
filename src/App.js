@@ -7,10 +7,20 @@ import AppPlayer from "./pages/AppPlayer.js";
 import AppPost from "./pages/AppPost.js";
 import AppTodo from "./pages/AppTodo.js";
 import AppRest1 from "./pages/AppRest1";
-import AppRest2 from "./pages/AppRest2";
+import AppRest2 from "./pages/AppRest2"
+
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+
+import { Amplify, Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
 
 
-function App() {
+
+Amplify.configure(awsconfig);
+
+
+function App({ signOut, user }) {
   return (
     <BrowserRouter>
       <Routes>
@@ -27,4 +37,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthenticator(App);

@@ -6,6 +6,40 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerBusiness = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Business, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly name: string;
+  readonly money?: number | null;
+  readonly workers?: number | null;
+  readonly isOpen?: boolean | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyBusiness = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Business, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly name: string;
+  readonly money?: number | null;
+  readonly workers?: number | null;
+  readonly isOpen?: boolean | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Business = LazyLoading extends LazyLoadingDisabled ? EagerBusiness : LazyBusiness
+
+export declare const Business: (new (init: ModelInit<Business>) => Business) & {
+  copyOf(source: Business, mutator: (draft: MutableModel<Business>) => MutableModel<Business> | void): Business;
+}
+
 type EagerPlayer2 = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Player2, 'id'>;

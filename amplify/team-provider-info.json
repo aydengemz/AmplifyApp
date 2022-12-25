@@ -10,6 +10,11 @@
       "StackName": "amplify-postapp-staging-163514",
       "StackId": "arn:aws:cloudformation:us-east-1:587718530657:stack/amplify-postapp-staging-163514/47fec230-8084-11ed-aca3-12aa5c8c7f25",
       "AmplifyAppId": "d39hagu5yvkwhg"
+    },
+    "categories": {
+      "auth": {
+        "PostApp": {}
+      }
     }
   }
 }

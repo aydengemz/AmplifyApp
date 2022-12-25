@@ -2,17 +2,9 @@
 import { DataStore } from '@aws-amplify/datastore';
 import { Player } from '../models';
 import '../App.css';
-import awsconfig from "../aws-exports";
-import { Amplify } from 'aws-amplify';
 import AllPlayer from '../mycomponents/AllPlayer.js';
 import React, { useState, useEffect } from "react";
 import PlayerCreateForm from "../ui-components/PlayerCreateForm.jsx"
-
-import { Logger } from 'aws-amplify';
-
-Amplify.Logger.LOG_LEVEL = 'DEBUG';
-
-Amplify.configure(awsconfig);
 
 function AppPlayer() {
 

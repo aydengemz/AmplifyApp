@@ -1,5 +1,85 @@
 export const schema = {
     "models": {
+        "Business": {
+            "name": "Business",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "name": {
+                    "name": "name",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "money": {
+                    "name": "money",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "workers": {
+                    "name": "workers",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "isOpen": {
+                    "name": "isOpen",
+                    "isArray": false,
+                    "type": "Boolean",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Businesses",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Player2": {
             "name": "Player2",
             "fields": {
@@ -282,5 +362,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.2",
-    "version": "b25b71b6577a352e65037b8bf1ab963d"
+    "version": "90bba34ef2c879585e82c566f6068dea"
 };
