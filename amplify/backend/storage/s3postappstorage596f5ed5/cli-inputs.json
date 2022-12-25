@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3postappstorage596f5ed5",
+  "bucketName": "postapp-storage-596f5ed5",
+  "policyUUID": "1da8de40",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

@@ -26,6 +26,9 @@ const Layout = () => {
           <li>
             <Link to="/api2">api2</Link>
           </li>
+          <li>
+            <Link to="/storage">storage</Link>
+          </li>
         </ul>
     </div>
 
