@@ -2,13 +2,10 @@ import '../App.css';
 import { DataStore } from '@aws-amplify/datastore';
 import { Post } from '../models';
 import PostUI from '../mycomponents/Post.js';
-import awsconfig from "../aws-exports";
-import { Amplify } from 'aws-amplify';
+
 import AllPosts from '../mycomponents/AllPost.js';
 import React, { useState, useEffect } from "react";
 import PostCreateForm from "../ui-components/PostCreateForm.jsx"
-
-Amplify.configure(awsconfig);
 
 
 function AppPost() {

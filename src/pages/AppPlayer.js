@@ -2,6 +2,7 @@
 import { DataStore } from '@aws-amplify/datastore';
 import { Player } from '../models';
 import '../App.css';
+
 import AllPlayer from '../mycomponents/AllPlayer.js';
 import React, { useState, useEffect } from "react";
 import PlayerCreateForm from "../ui-components/PlayerCreateForm.jsx"
