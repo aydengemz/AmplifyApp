@@ -6,8 +6,8 @@ import '../App.css';
 const Layout = () => {
   return (
     <>
-      <nav>
-        <ul id = "navbar">
+    <div>
+    <ul id = "navbar">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -20,8 +20,16 @@ const Layout = () => {
           <li>
             <Link to="/post">Posts</Link>
           </li>
+          <li>
+            <Link to="/api1">api1</Link>
+          </li>
+          <li>
+            <Link to="/api2">api2</Link>
+          </li>
         </ul>
-      </nav>
+    </div>
+
+
 
       <Outlet />
     </>
