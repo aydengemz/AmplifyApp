@@ -1,6 +1,6 @@
 
 ## AWS Amplify App
-#Ayden Xu
+By Ayden Xu
 
 My Amazon Free Trial Expired :(
 
