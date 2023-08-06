@@ -1,0 +1,9 @@
+html,
+body,
+#root { /* The ancestors of the map element */
+  height: 100%;
+}
+
+#map {
+  height: 50%;
+}

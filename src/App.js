@@ -15,6 +15,7 @@ import '@aws-amplify/ui-react/styles.css';
 import { Amplify, Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import AppStorage from "./pages/AppStorage";
+import AppMap from "./pages/AppMap";
 
 Amplify.configure(awsconfig);
 
@@ -31,6 +32,7 @@ function App({ signOut, user }) {
           <Route path="api1" element={<AppRest1 />} />
           <Route path="api2" element={<AppRest2 />} />
           <Route path="storage" element={<AppStorage />} />
+          <Route path="maps" element={<AppMap /> } />
         </Route>
       </Routes>
     </BrowserRouter>
